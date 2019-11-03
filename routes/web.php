@@ -13,3 +13,4 @@
 
 Route::get('/', 'MemberController@index')->name('welcome');
 Route::resource('member', 'MemberController');
+Route::response('details','DetailsController');
