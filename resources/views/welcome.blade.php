@@ -1,50 +1,41 @@
-
 @extends('layouts.app')
 @section('content')
-
-
-
-
-
-
-
+	
 		
 
-<section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-5">
+<section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-5 bottom-auto">
 	
 	<div class="container mx-auto flex flex-wrap pt-4 pb-12">
 	
 		<h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">Members</h1>
-		<div class="w-full mb-4">	
-			<div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-		</div>
-	
-		<div class="flex flex-wrap">
-            @foreach($all as $item)
-    
-			<div class="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg">
-				<svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none" style="transform: scale(1.5); opacity: 0.1;">
-					<rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white"/>
-					<rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white"/>
-				</svg>
-				<div class="relative pt-10 px-10 flex items-center justify-center">
-					
-                        <img class="relative w-40" src="{{$item->image}}" alt="">
-				</div>
-                <div class="relative text-white px-6 pb-6 mt-6">
-                    <span class="block opacity-75 -mb-1">{{$item->name}}</span>
-                    <div class="flex justify-between">
-                    <span class="block font-semibold text-xl">{{$item->phone}}</span>
-                    <span class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">{{$item->year}}</span>
-                    </div>
-                </div>
-			</div>
-			
-             
-            
-              
-            @endforeach
 		
+		<div class="h-screen overflow-hidden flex items-center justify-center">
+			<div class="container mx-auto p-8">
+				<div class="flex flex-row flex-wrap -mx-2"> 
+					@foreach($all as $item)
+						<div class="w-full sm:w-1/2 md:w-1/3 mb-4 px-2">
+							<div class="relative bg-white rounded border">
+								<picture class="block bg-gray-200 border-b">
+									<img class="block" src="{{$item->image}}" alt="Card 1" height="150" width="auto">
+								</picture>
+								<div class="p-4">
+									<h3 class="text-lg font-bold text-black">
+									
+										{{$item->name}}
+									
+									</h3>
+									<time class="block mb-2 text-sm text-gray-600 text-black" datetime="">{{$item->year}}</time>
+									<p class="text-black">
+											{{$item->phone}}<br>{{$item->email}}
+									</p>
+								</div>
+							</div>
+						</div>
+					@endforeach
+
+				</div>
+			</div>		
+				
         </div>
     </div>
      
@@ -167,6 +158,5 @@
 	<button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg">Go and Conquer!</button>
 		
 </section>
-
 
 @endsection
